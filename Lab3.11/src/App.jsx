@@ -2,20 +2,23 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-  const deleteTask = (index) => {
-    set(list.filter((_, i) => i !== index))
-  }
-function App() {
 
+function App() {
+  const [list,setList]=useState(["Task1","Task2","Task3"])
+  const deleteTask = (index) => {
+    setList(list.filter((_, i) => i !== index))
+  }
   return (
-   <ul>
-      {list.map((item, index) => (
-        <li key={index}>
-          {item}
-          <button onClick={() => deleteTask(index)}>Delete</button>
-        </li>
-      ))}
-    </ul>
+    <div className = "App">
+      <ul>
+        {list.map((valu, index) => (
+          <li key={index}>
+            {valu}
+            <button onClick={() => deleteTask(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
